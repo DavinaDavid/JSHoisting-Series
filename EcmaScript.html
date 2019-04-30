@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //************JS HOISTING***********//
+        //*******VARIABLES*******//
+a=1;
+var a;
+document.writeln(a); //1
+
+document.writeln(b); //undefined
+var b=2;
+
+//document.writeln(c); //undefined ,code breaks
+//c=3;         //undefined and code breaks widout declaration
+
+//document.writeln(d); //code breaks
+document.writeln(f); //undefined
+var f;
+
+//document.writeln(g); // g not defined error and code breaks
+//g=9;
+
+e=12;
+document.writeln(e); //12
+
+//*********STRING BEHAVIOUR******//
+
+document.writeln("2"+2); //"22"
+document.writeln("2"+"2");//"22"
+document.writeln(2+"2");//"22"
+document.writeln("a1"+2); //"a12"
+document.writeln("a1"*2);//NaN
+//document.writeln(a1*2);//a1 not defined and code break
+document.writeln("a1"+2); //"a12"
+
+
+//**********FUNCTION********//
+document.writeln("<h3>Functions</h3>");
+var f1= function(){
+   document.writeln("f1 runs");//RUNS
+}
+ f1();
+
+ /*
+ f2(); //error=f2 is not a function becoz var f2 goes up(as var)then called then function declared
+ var f2=function(){
+    document.writeln("f2 runs");
+ }
+ */
+
+f3= function(){
+   document.writeln("f3 runs");//RUNS
+}
+
+ f3();
+
+/*
+f4(); //error f4 not defined
+f4=function(){
+    document.writeln("f4 runs");
+}
+*/
+
+f5();
+function f5(){
+    document.writeln("f5 runs");
+}
+
+function f6(){
+    document.writeln("f6 runs");
+}
+f6();
+
+function f7(){
+    document.writeln("f7 runs");
+}
+f7();
+
+f8();
+function f8(){
+    document.writeln("f8 runs");
+}
+
+//*******KEY-WORDS*******//
+document.writeln("<h3>Use-Strict,Let,const</h3>")
+"use strict";
+var a1 = 10;
+var a1 = 100;
+document.writeln(a1); //100
+
+"use strict";
+var a1 = 10;
+a1 = 100;
+document.writeln(a1); //100
+
+"use strict"
+s1 = 10;
+document.writeln(s1); //10
+
+let check=90;
+function func(){
+    let check=79;
+    document.writeln(check);//79
+}
+func(); //79
+document.writeln(check); //90
+
+let check1=190;
+function func1(){
+    let check1=179;
+    document.writeln(check1);
+}
+document.writeln(check1);//190
+func1();//179
+
+let check2=290;
+function func2(){
+    document.writeln(check2+ " ");
+}
+document.writeln(check2 + " ");//190
+func2();//179
+
+
+let if1 = 2;
+if(true){
+    if1=8;
+    document.write(if1+ " ");
+}
+
+//let if1 =4;
+//document.write(if1);//error becoz same level pr same var ki diff declaration
+
+/*const consVar=4;
+consVar = 8;
+document.write(consVar); //error
+*/
+const consVar=4;
+document.write(consVar); //4
+
+/*const consVar1=9;
+const consVar1=19;
+document.write(consVar1); //error
+*/
+
+/*const conVar2=607;
+{
+    conVar2=700;
+    document.write(conVar2); //error becoz const ko reassign
+}
+document.write(conVar2);
+*/
+
+//0,1,1,2,3,5,8...
+document.write("<h3>Series Till 1000 iterations</h3>");
+document.writeln("<h4>Fibonacci Series</h4>");
+var num1=0;
+var num2=1;
+for(var i=1;i<=1000;i++){
+    document.write(num1+",");
+    var inp = num1 + num2;
+    num1=num2;
+    num2=inp;
+   // document.write(inp);
+}
+
+document.writeln("<h4>Prime Num</h4>");
+//var isprime = false;
+
+    for(var j=1;j<=1000;j++){
+        var isprime = false;
+     for(var k=2;k<j;k++){
+            if(j%k==0){
+              break;
+            }
+            else{
+             isprime=true;
+            }
+     }
+     if(isprime){
+         document.write(j+",");
+     }
+    }
+    
+
+  </script>  
+</body>
+</html>
